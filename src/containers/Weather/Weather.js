@@ -1,34 +1,20 @@
 import React, { Component } from 'react';
-import { Search } from '../../components/Search/Search';
-
+import { DateList } from '../../components/DateList/DateList';
 import { connect } from 'react-redux';
 
-import { getWeather } from '../../actions';
-
-export class Home extends Component {
-
+export class Weather extends Component {
   render() {
-    const { isFetching, city, error, getWeatherAction } = this.props;
-
+    const { cities } = this.props;
     return (
-      <div>
-        <Search getWeatherAction={ getWeatherAction }
-          isFetching={ isFetching }
-          error={ error }
-          city={ city } />
-      </div>
+      <DateList cities={ cities } />
     );
   }
 }
 
 const mapStateToProps = state => (
   {
-    isFetching: state.weather.fetching,
-    city: state.weather.city,
-    list: state.weather.list,
+    cities: state.weather.cities,
   }
 );
 
-export default connect(mapStateToProps, {
-  getWeatherAction: getWeather,
-})(Home);
+export default connect(mapStateToProps)(Weather);

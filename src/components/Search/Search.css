@@ -1,0 +1,27 @@
+.centered {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 50px;
+}
+
+.card {
+  width: 300px;
+  margin: 50px auto;
+}
+
+.button {
+  margin-left: 20px !important;
+}
+
+.link {
+  text-decoration: none;
+  text-transform: uppercase;
+  color: black;
+  text-align: center;
+}
+
+.error {
+  margin-top: 50px;
+  text-align: center
+}
