@@ -4,9 +4,10 @@ import { connect } from 'react-redux';
 
 export class Weather extends Component {
   render() {
-    const { cities } = this.props;
+    const { cities, city } = this.props;
     return (
-      <DateList cities={ cities } />
+      <DateList cities={ cities }
+        city={ city } />
     );
   }
 }
@@ -14,6 +15,7 @@ export class Weather extends Component {
 const mapStateToProps = state => (
   {
     cities: state.weather.cities,
+    city: state.weather.city,
   }
 );
 
