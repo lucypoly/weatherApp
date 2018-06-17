@@ -1,5 +1,5 @@
 import request from 'axios';
-import { GET_WEATHER_REQUEST, GET_WEATHER_SUCCESS, GET_WEATHER_ERROR } from '../constants/actions';
+import { GET_WEATHER_REQUEST, GET_WEATHER_SUCCESS, GET_WEATHER_ERROR, ADD_FAVOURITES } from '../constants/actions';
 import { TOKEN } from '../constants/token';
 import { handleError } from '../helpers';
 
@@ -23,3 +23,9 @@ export const getWeather = city => (dispatch) => {
       });
     });
 };
+
+
+export const addFavourites = city => ({
+  type: ADD_FAVOURITES,
+  city
+});

@@ -1,16 +1,14 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
 
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
-import Card from '@material-ui/core/Card';
-import CardContent from '@material-ui/core/CardContent';
-import Typography from '@material-ui/core/Typography';
 import CircularProgress from '@material-ui/core/CircularProgress';
+
+import  CityCard from '../CityCard/CityCard';
 
 import './Search.css';
 
-export class Search extends Component {
+export default class Search extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -26,25 +24,9 @@ export class Search extends Component {
     this.setState({ value: event.target.value });
   };
 
-  renderCard(city) {
-    return (
-      <Link to={ `/weather/${city}` }
-            className="link">
-        <Card className="city-card">
-          <CardContent>
-            <Typography variant="headline"
-                        component="h2">
-              { city }
-            </Typography>
-          </CardContent>
-        </Card>
-      </Link>
-    )
-  }
-
   render() {
     const { value } = this.state;
-    const { city, error, isFetching } = this.props;
+    const { city, error, isFetching, cities } = this.props;
 
     return (
       <div>
@@ -62,8 +44,10 @@ export class Search extends Component {
                   variant="contained"
                   onClick={ this.onButtonClick }>Search</Button>
         </div>
-        <div>
-          { !isFetching && !error && city && this.renderCard(city) }
+        <div className="cards">
+          { !isFetching && !error && city &&
+          Object.keys(cities).map(key => <CityCard key={ key }
+                                                   city={ key }/>) }
           { isFetching && city && (<CircularProgress />) }
           { !isFetching && error && city && (<h1 className="error">{ error } :(</h1>) }
         </div>

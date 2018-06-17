@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { addFavourites } from '../../actions';
 
 import { DateList } from '../../components/DateList/DateList';
 
@@ -7,13 +8,17 @@ import Button from '@material-ui/core/Button';
 
 export class Weather extends Component {
   render() {
-    const { cities, city } = this.props;
+    const { cities, addFavouritesAction } = this.props;
+    const { city } = this.props.location.state;
     return (
       <div>
         <Button variant="contained"
                 color="secondary"
                 className="controls"
-                >Add to favourites</Button>
+                onClick={() => {
+                  addFavouritesAction(city)
+                }}
+        >Add to favourites</Button>
         <DateList cities={ cities }
                   city={ city }/>
       </div>
@@ -28,4 +33,6 @@ const mapStateToProps = state => (
   }
 );
 
-export default connect(mapStateToProps)(Weather);
+export default connect(mapStateToProps, {
+  addFavouritesAction: addFavourites,
+})(Weather);

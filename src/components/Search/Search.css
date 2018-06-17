@@ -14,8 +14,8 @@
 
 .city-card {
     width: 300px;
-    margin: 50px auto;
-    display: block;
+    margin: 50px 20px;
+    display: inline-block;
 }
 
 .button {
@@ -25,4 +25,10 @@
 .error {
     margin-top: 50px;
     text-align: center
+}
+
+.cards {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
 }
