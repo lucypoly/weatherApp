@@ -1,0 +1,12 @@
+.date-weather {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.controls {
+    position: absolute !important;
+    top: 20px;
+    right: 50px;
+}

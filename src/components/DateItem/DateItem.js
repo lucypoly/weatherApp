@@ -13,7 +13,13 @@ const DateItem = (props) => (
     { props && (
       <Link to={{
         pathname: `/weather/${props.city}/${ props.date }`,
-        state: { dateData: props.dateData }
+        state: {
+          date: props.date,
+          dateData: props.dateData,
+          temp: props.temperature,
+          city: props.city,
+          weather: props.weather
+        }
       }}
             className="link">
         <Card className="card">
@@ -28,7 +34,7 @@ const DateItem = (props) => (
             <Typography gutterBottom
                         variant="headline"
                         component="h2">
-              { Math.round(props.temperature) } C
+              { props.temperature } C
             </Typography>
           </CardContent>
         </Card>

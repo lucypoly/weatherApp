@@ -6,5 +6,8 @@
 
 .city-name {
     text-transform: uppercase;
-    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
 }

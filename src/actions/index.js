@@ -21,6 +21,5 @@ export const getWeather = city => (dispatch) => {
         type: GET_WEATHER_ERROR,
         payload: handleError(error),
       });
-      console.log()
     });
 };

@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import DateItem from '../DateItem/DateItem';
+import { getAverage } from '../../helpers';
+
 import './DateList.css';
 
 export class DateList extends Component {
@@ -18,19 +20,11 @@ export class DateList extends Component {
   getTemperature(date) {
     const tempArr = [];
     date.forEach(time => tempArr.push(+time.main.temp - 273.15));
-    return this.getAverage(tempArr);
+    return getAverage(tempArr);
   }
 
   getWeatherStatus(date) {
     return date[0].weather[0].main;
-  }
-
-  getAverage(arr) {
-    let sum = 0;
-    for (let i = 0; i < arr.length; i++) {
-      sum += parseInt(arr[i], 10);
-    }
-    return sum / arr.length;
   }
 
   getDates() {
@@ -57,7 +51,7 @@ export class DateList extends Component {
           {
             Object.keys(this.state.dates).length && Object.keys(this.state.dates).map(key => (
               <DateItem
-                temperature={ this.getTemperature(this.state.dates[key]) }
+                temperature={ Math.round(this.getTemperature(this.state.dates[key])) }
                 dateData = { this.state.dates[key] }
                 date={ key }
                 key={ key }
@@ -71,6 +65,5 @@ export class DateList extends Component {
     );
   }
 }
-
 
 export default DateList;

@@ -1,13 +1,22 @@
 import React, { Component } from 'react';
-import { DateList } from '../../components/DateList/DateList';
 import { connect } from 'react-redux';
+
+import { DateList } from '../../components/DateList/DateList';
+
+import Button from '@material-ui/core/Button';
 
 export class Weather extends Component {
   render() {
     const { cities, city } = this.props;
     return (
-      <DateList cities={ cities }
-        city={ city } />
+      <div>
+        <Button variant="contained"
+                color="secondary"
+                className="controls"
+                >Add to favourites</Button>
+        <DateList cities={ cities }
+                  city={ city }/>
+      </div>
     );
   }
 }
