@@ -2,11 +2,11 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { addFavourites } from '../../actions';
 
-import { DateList } from '../../components/DateList/DateList';
+import DateList from '../../components/DateList/DateList';
 
 import Button from '@material-ui/core/Button';
 
-export class Weather extends Component {
+class Weather extends Component {
   render() {
     const { cities, addFavouritesAction } = this.props;
     const { city } = this.props.location.state;

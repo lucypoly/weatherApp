@@ -4,7 +4,7 @@ import { getAverage } from '../../helpers';
 
 import './DateList.css';
 
-export class DateList extends Component {
+export default class DateList extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -43,7 +43,6 @@ export class DateList extends Component {
   }
 
   render() {
-
     return (
       <div>
         <h1 className="city-name">{ this.props.city }</h1>
@@ -65,5 +64,3 @@ export class DateList extends Component {
     );
   }
 }
-
-export default DateList;

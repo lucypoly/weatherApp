@@ -4,13 +4,18 @@ import Search from '../../components/Search/Search';
 import CityCard from '../../components/CityCard/CityCard';
 
 import { connect } from 'react-redux';
-
 import { getWeather } from '../../actions';
 
-export class Home extends Component {
-
+class Home extends Component {
   render() {
-    const { isFetching, city, cities, error, getWeatherAction, favourites } = this.props;
+    const {
+      isFetching,
+      city,
+      cities,
+      error,
+      getWeatherAction,
+      favourites
+    } = this.props;
 
     return (
       <div>

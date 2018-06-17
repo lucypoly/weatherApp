@@ -10,7 +10,7 @@ import Home from '../../containers/Home/Home';
 import Weather from '../../containers/Weather/Weather';
 import DateWeather from '../DateWeather/DateWeather';
 
-export const App = () =>
+const App = () =>
   (
     <div>
       <Router>

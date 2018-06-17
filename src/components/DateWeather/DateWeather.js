@@ -5,10 +5,9 @@ import Button from '@material-ui/core/Button';
 
 import { WEATHER } from '../../constants/weather';
 import { getAverage } from '../../helpers';
-
 import './DateWeather.css';
 
-export class DateWeather extends Component {
+export default class DateWeather extends Component {
   getPressure(date) {
     const presArr = [];
     date.forEach(time => presArr.push(+time.main.pressure));
@@ -62,5 +61,3 @@ export class DateWeather extends Component {
     )
   }
 }
-
-export default DateWeather;
