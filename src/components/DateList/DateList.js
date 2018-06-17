@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-
+import DateItem from '../DateItem/DateItem';
+import './DateList.css';
 
 export class DateList extends Component {
   constructor(props) {
@@ -18,6 +19,10 @@ export class DateList extends Component {
     const tempArr = [];
     date.forEach(time => tempArr.push(+time.main.temp - 273.15));
     return this.getAverage(tempArr);
+  }
+
+  getWeatherStatus(date) {
+    return date[0].weather[0].main;
   }
 
   getAverage(arr) {
@@ -47,11 +52,21 @@ export class DateList extends Component {
 
     return (
       <div>
-        {
-          Object.keys(this.state.dates).length && Object.keys(this.state.dates).map(key => (
-            <div key={ key }>{ this.getTemperature(this.state.dates[key]) }</div>
-          ))
-        }
+        <h1 className="city-name">{ this.props.city }</h1>
+        <div className="card-list">
+          {
+            Object.keys(this.state.dates).length && Object.keys(this.state.dates).map(key => (
+              <DateItem
+                temperature={ this.getTemperature(this.state.dates[key]) }
+                dateData = { this.state.dates[key] }
+                date={ key }
+                key={ key }
+                city={ this.props.city }
+                weather={ this.getWeatherStatus(this.state.dates[key]) }
+              />
+            ))
+          }
+        </div>
       </div>
     );
   }

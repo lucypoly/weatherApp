@@ -8,6 +8,7 @@ import Typography from '@material-ui/core/Typography';
 
 import Home from '../../containers/Home/Home';
 import Weather from '../../containers/Weather/Weather';
+import DateWeather from '../DateWeather/DateWeather';
 
 export const App = () =>
   (
@@ -32,6 +33,9 @@ export const App = () =>
           <Route exact
             path="/weather/:city"
             component={ Weather } />
+          <Route exact
+            path="/weather/:city/:date"
+            component={ DateWeather } />
         </div>
       </Router>
     </div>

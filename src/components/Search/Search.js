@@ -29,11 +29,11 @@ export class Search extends Component {
   renderCard(city) {
     return (
       <Link to={ `/weather/${city}` }
-        className="link">
-        <Card className="card">
+            className="link">
+        <Card className="city-card">
           <CardContent>
             <Typography variant="headline"
-              component="h2">
+                        component="h2">
               { city }
             </Typography>
           </CardContent>
@@ -57,15 +57,15 @@ export class Search extends Component {
             margin="none"
           />
           <Button size="medium"
-            className="button"
-            color="primary"
-            variant="contained"
-            onClick={ this.onButtonClick }>Search</Button>
+                  className="button"
+                  color="primary"
+                  variant="contained"
+                  onClick={ this.onButtonClick }>Search</Button>
         </div>
         <div>
           { !isFetching && !error && city && this.renderCard(city) }
-          { isFetching && city && <CircularProgress /> }
-          { !isFetching && error && city && <h1 className="error">{ error } :(</h1> }
+          { isFetching && city && (<CircularProgress />) }
+          { !isFetching && error && city && (<h1 className="error">{ error } :(</h1>) }
         </div>
       </div>
     )
